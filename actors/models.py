@@ -6,7 +6,7 @@ NATIONALITY_CHOICES = (
     ('Brazil', 'Brasil'),
     ('Portugal', 'Portugal'),
     ('Germany', 'Alemanha'),
-    ('France', 'Franca'),
+    ('France', 'França'),
     ('Italy', 'Italia'),
     ('Spain', 'Espanha'),
     ('England', 'Inglaterra'),
