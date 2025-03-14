@@ -22,6 +22,8 @@ from genres.views import GenreRetrieveUpdateDestroyView, GenreCreateListView
 from actors.views import ActorListCreateView, ActorRetrieveUpdateDestroyView
 # view dos filmes
 from movies.views import MovieListCreateView, MovieRetrieveUpdateDestroyView
+# view das reviews
+from reviews.views import ReviewListCreateView, ReviewRetrieveUpdateDestroyView
 
 urlpatterns = [
     # url admin
@@ -38,4 +40,8 @@ urlpatterns = [
     path('movies/', MovieListCreateView.as_view(), name='movie'),
     # url buscar, atualizar e deletar filmes
     path('movies/<int:pk>', MovieRetrieveUpdateDestroyView.as_view(), name='movie-detail.view'),
+    # url listar e cadastrar reviews
+    path('reviews/', ReviewListCreateView.as_view(), name='review'),
+    # url buscar, atualizar e deletar reviews
+    path('reviews/<int:pk>', ReviewRetrieveUpdateDestroyView.as_view(), name='review-detail-view'),
 ]
