@@ -16,13 +16,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+# view dos generos
 from genres.views import GenreRetrieveUpdateDestroyView, GenreCreateListView
+# view dos atores
 from actors.views import ActorListCreateView, ActorRetrieveUpdateDestroyView
+# view dos filmes
+from movies.views import MovieListCreateView, MovieRetrieveUpdateDestroyView
 
 urlpatterns = [
+    # url admin
     path('admin/', admin.site.urls),
+    # url listar e cadastrar generos 
     path('genres/', GenreCreateListView.as_view(), name='genre'),
+    # url buscar, atualizar e deletar generos
     path('genres/<int:pk>', GenreRetrieveUpdateDestroyView.as_view(), name='genre-detail-view'),
+    # url listar e cadastrar atores
     path('actors/', ActorListCreateView.as_view(), name='actor'),
+    # url buscar, atualizar e deletar atores
     path('actors/<int:pk>', ActorRetrieveUpdateDestroyView.as_view(), name='acotr-detail-view'),
+    # url listar e cadastrar filmes
+    path('movies/', MovieListCreateView.as_view(), name='movie'),
+    # url buscar, atualizar e deletar filmes
+    path('movies/<int:pk>', MovieRetrieveUpdateDestroyView.as_view(), name='movie-detail.view'),
 ]
