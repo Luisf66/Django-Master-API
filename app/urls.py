@@ -15,9 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-# view dos generos
-from genres.views import GenreRetrieveUpdateDestroyView, GenreCreateListView
+from django.urls import path, include
 # view dos atores
 from actors.views import ActorListCreateView, ActorRetrieveUpdateDestroyView
 # view dos filmes
@@ -28,10 +26,8 @@ from reviews.views import ReviewListCreateView, ReviewRetrieveUpdateDestroyView
 urlpatterns = [
     # url admin
     path('admin/', admin.site.urls),
-    # url listar e cadastrar generos 
-    path('genres/', GenreCreateListView.as_view(), name='genre'),
-    # url buscar, atualizar e deletar generos
-    path('genres/<int:pk>', GenreRetrieveUpdateDestroyView.as_view(), name='genre-detail-view'),
+    # url dos generos
+    path('api/v1/', include('genres.urls')),
     # url listar e cadastrar atores
     path('actors/', ActorListCreateView.as_view(), name='actor'),
     # url buscar, atualizar e deletar atores
