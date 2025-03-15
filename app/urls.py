@@ -16,10 +16,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-# view dos filmes
-from movies.views import MovieListCreateView, MovieRetrieveUpdateDestroyView
-# view das reviews
-from reviews.views import ReviewListCreateView, ReviewRetrieveUpdateDestroyView
 
 urlpatterns = [
     # url admin
@@ -28,12 +24,8 @@ urlpatterns = [
     path('api/v1/', include('genres.urls')),
     # url dos atores
     path('api/v1/', include('actors.urls')),
-    # url listar e cadastrar filmes
-    path('movies/', MovieListCreateView.as_view(), name='movie'),
-    # url buscar, atualizar e deletar filmes
-    path('movies/<int:pk>', MovieRetrieveUpdateDestroyView.as_view(), name='movie-detail.view'),
-    # url listar e cadastrar reviews
-    path('reviews/', ReviewListCreateView.as_view(), name='review'),
-    # url buscar, atualizar e deletar reviews
-    path('reviews/<int:pk>', ReviewRetrieveUpdateDestroyView.as_view(), name='review-detail-view'),
+    # url dos filmes
+    path('api/v1/', include('movies.urls')),
+    # url das reviews
+    path('api/v1/', include('reviews.urls')),
 ]
