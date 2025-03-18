@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
 urlpatterns = [
     # url admin
     path('admin/', admin.site.urls),
@@ -28,4 +29,6 @@ urlpatterns = [
     path('api/v1/', include('movies.urls')),
     # url das reviews
     path('api/v1/', include('reviews.urls')),
+    # url de autenticação
+    path('api/v1/', include('authentication.urls')),
 ]
